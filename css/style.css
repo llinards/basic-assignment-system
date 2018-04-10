@@ -23,3 +23,13 @@ h6 {
 }
 
 
+.form-control {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.sakt-testu {
+    margin: 0 auto;
+    display: block;
+}
+
