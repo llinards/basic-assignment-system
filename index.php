@@ -1,30 +1,41 @@
-<?php include_once 'includes/header.php' ?>
+<?php 
+    include_once 'includes/header.php';
+    include_once 'includes/db.php';
+    include_once 'includes/getAllTests.php';
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center">
-                Sveicināti!
-            </h1>
-            <br>
-            <div class="row">
-                <form method="POST" action="tests.php">
-                    <div class="form-group">
-                        <input required type="text" class="form-control" id="vards" placeholder="Ievadi savu vārdu">
-                    </div>        
-                    <div class="form-group">
-                        <select class="form-control testa-izvele" id="sel1">
-                            <option value="" disabled selected>Izvēlies testu</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-default sakt-testu">Sākt!</button>
-                </form>
+    $testi = new Testi();
+    $testi = $testi->getAllTests();
+?>
+
+<section id="welcome-page">
+    <div class="container welcome">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Sveicināti!</h1>            
+                <div class="row">
+                    <form method="POST" action="test.php">
+                        <div class="form-group home-page">
+                            <input type="text" class="form-control" name="lietotaja-vards" id="vards" placeholder="Ievadi savu vārdu">
+                        </div>
+                        <div class="form-group home-page">
+                            <select id="testi" required name="tests" size="1">
+                                <option selected disabled hiddenvalue="">Izvēlies testu</option>
+                                <?php 
+                                foreach ($testi as $tests)
+                                {
+                                    echo "<option value='$tests[testa_id]'>$tests[testa_nosaukums]</option>";
+                                } 
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group home-page">      
+                            <button type="submit" name="jauns-tests" class="btn btn-default">Sākt!</button>
+                        </div>
+                    
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
 <?php include_once 'includes/footer.php' ?>

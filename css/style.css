@@ -1,12 +1,10 @@
-
-
 /* GENERAL */
 
 body {
-    margin-top: 50px;
     /* font-family: 'Dosis', sans-serif; */
     font-size: 16px;
     /* background: url('../img/tile.jpg') top left repeat; */
+    height: 100vh;
 }
 
 /* GLOBAL */
@@ -22,14 +20,55 @@ h6 {
     font-weight: bold;
 }
 
+/* .container.welcome {
+    margin-top: 25%;
+    border: 1px solid black;
+    padding: 15px;
+    box-shadow: 5px 10px #888888;
+} */
 
-.form-control {
-    width: 20%;
+.container.welcome,
+.container.tests,
+.container.result {
+    margin-top: 25px;
+}
+
+.container.welcome .form-group {
+    width: 50%;
     margin: 0 auto;
 }
 
-.sakt-testu {
-    margin: 0 auto;
+.form-group.home-page {
+    padding-bottom: 15px;
+}
+
+.form-group.home-page:first-of-type {
+    padding-top: 25px;
+}
+
+select[multiple],
+select[size],
+.btn-default {
+    width: 100%;
+}
+
+.btn-success {
+    margin: 25px auto;
     display: block;
 }
 
+.col-sm-6.atbildes {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 767px) {
+    .col-sm-6.atbildes {
+        width: 40%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
