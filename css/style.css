@@ -1,10 +1,11 @@
 /* GENERAL */
 
 body {
-    /* font-family: 'Dosis', sans-serif; */
+    font-family: 'Dosis', sans-serif;
     font-size: 16px;
     /* background: url('../img/tile.jpg') top left repeat; */
     height: 100vh;
+    background-color: #ecf0f1;
 }
 
 /* GLOBAL */
@@ -58,11 +59,22 @@ select[size],
 }
 
 .col-sm-6.atbildes {
-    border: 1px solid black;
+    border: 1px solid #7f8c8d;
     border-radius: 10px;
     padding: 10px;
     margin-top: 25px;
     text-align: center;
+}
+
+.progress {
+    width: 50%;
+    margin: 0 auto;
+}
+
+hr.bottom {
+    margin: 10px auto;
+    border-top: 2px solid #7f8c8d;
+    width: 50%;
 }
 
 @media only screen and (min-width: 767px) {
