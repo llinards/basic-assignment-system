@@ -3,6 +3,8 @@
     include_once 'includes/db.php';
     include_once 'includes/getAllTests.php';
 
+    // Tiek izveidots jauns objekts $testi un izsaukta metode getAllTests, lai iegūtu visus testus, kas glabājas datubāzē un
+    // piedāvātu lietotājam izvēlēties, kuru vēlas pildīt
     $testi = new Testi();
     $testi = $testi->getAllTests();
 ?>
@@ -11,16 +13,17 @@
     <div class="container welcome">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Sveicināti!</h1>            
+                <h1 class="text-center">Sveiciens!</h1>            
                 <div class="row">
                     <form method="POST" action="test.php">
                         <div class="form-group home-page">
-                            <input type="text" class="form-control" name="lietotaja-vards" id="vards" placeholder="Ievadi savu vārdu">
+                            <input required type="text" class="form-control" name="lietotaja-vards" id="vards" placeholder="Ievadi savu vārdu">
                         </div>
                         <div class="form-group home-page">
                             <select id="testi" required name="tests" size="1">
                                 <option selected disabled hiddenvalue="">Izvēlies testu</option>
                                 <?php 
+                                // foreach cikls, lai izveidotu "dropdown" izvēlni
                                 foreach ($testi as $tests)
                                 {
                                     echo "<option value='$tests[testa_id]'>$tests[testa_nosaukums]</option>";

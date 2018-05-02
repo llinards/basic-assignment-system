@@ -1,8 +1,9 @@
 <?php
 
-
+//Objekts Testi, kas manto metodes no Db objekta
 class Testi extends Db
 {
+    //metode, kas atgriež visus pieejamos testus sākumlapā
     public function getAllTests()
     {
         $query = "SELECT * FROM testi";
