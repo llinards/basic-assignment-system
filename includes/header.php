@@ -12,7 +12,7 @@
     <meta name="author" content="">
 
     <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> -->
-    <title>Template</title>
+    <title>Printful Uzdevums</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Google fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 
 </head>
 
