@@ -19,7 +19,7 @@ if (empty($_POST))
 if (isset($_POST['jauns-tests'])) 
 {
     // tiek saglabāts sesijas masīvā lietotāja vārds. Pirms tam tas tiek pārbaudīts, vai nav neatļautu simoblu vārdā;
-    $_SESSION['lietotaja_vards'] = sanitizeString($_POST['lietotaja-vards']);
+    $_SESSION['lietotaja_vards'] = sanitizeString($_POST['lietotajs']);
     // tiek saglabāta sesijas masīvā vērtība, kas parādīs, kurā jautājumā lietotājs atrodas;
     $_SESSION['jautajuma_numurs'] = 0;
     // tiek saglabāta sesijas masīvā vērtībā, kas parādīs uz cik jautājumiem lietotājs ir atbildējis;
@@ -92,14 +92,14 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
     <h1 class="text-center">Sveiki, <?php echo $_SESSION['lietotaja_vards']; ?>!</h1>
     <hr class="bottom">
     <h3 class="text-center"><?php echo $jautajums['jautajums'] ?></h3>
-    <form action="test.php" method="post">
+    <form action="test.php" method="post" onsubmit="return validateTest(this)">
         <div class="row">
             <?php
                 // ar foreach ciklu tiek iegūtas visas atbildes
                 foreach ($atbildes_uz_jaut as $atbilde)
                 {
                     echo "<div class='col-sm-6 atbildes'>";
-                        echo "<input required name='atbilde' type='radio' value='$atbilde[atbildes_id]'> $atbilde[atbilde]<br>";
+                        echo "<input name='atbilde' type='radio' value='$atbilde[atbildes_id]'> $atbilde[atbilde]<br>";
                     echo "</div>";
                 }
             ?>
@@ -118,7 +118,7 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
         </div>
     </form>
     <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
             <span class="sr-only">40% Complete (success)</span>
         </div>
     </div>

@@ -15,13 +15,13 @@
             <div class="col-md-12">
                 <h1 class="text-center">Sveiciens!</h1>            
                 <div class="row">
-                    <form method="POST" action="test.php">
+                    <form method="POST" action="test.php" onsubmit="return validate(this)">
                         <div class="form-group home-page">
-                            <input required type="text" class="form-control" name="lietotaja-vards" id="vards" placeholder="Ievadi savu vārdu">
+                            <input type="text" class="form-control" name="lietotajs" id="vards" placeholder="Ievadi savu vārdu">
                         </div>
                         <div class="form-group home-page">
-                            <select id="testi" required name="tests" size="1">
-                                <option selected disabled hiddenvalue="">Izvēlies testu</option>
+                            <select id="testi" name="tests" size="1">
+                                <option selected disabled value="">Izvēlies testu</option>
                                 <?php 
                                 // foreach cikls, lai izveidotu "dropdown" izvēlni
                                 foreach ($testi as $tests)

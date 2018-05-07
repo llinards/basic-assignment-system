@@ -23,6 +23,8 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 
+    <script src="js/script.js"></script>
+
 </head>
 
 
