@@ -9,15 +9,13 @@
 
 // ja lietotājs mēģina piekļūt tests.php pa taisno, tiek liegta tālākā pieeja un izvadīts paziņojums kļūda
 
-if (empty($_POST))
-{
+if (empty($_POST)) {
     die ("Kļūda!");
 }
 
 
 // jauna testa inicializācija
-if (isset($_POST['jauns-tests'])) 
-{
+if (isset($_POST['jauns-tests'])) { 
     // tiek saglabāts sesijas masīvā lietotāja vārds. Pirms tam tas tiek pārbaudīts, vai nav neatļautu simoblu vārdā;
     $_SESSION['lietotaja_vards'] = sanitizeString($_POST['lietotajs']);
     // tiek saglabāta sesijas masīvā vērtība, kas parādīs, kurā jautājumā lietotājs atrodas;
@@ -31,8 +29,7 @@ if (isset($_POST['jauns-tests']))
     $jautajumu_skaits = new Questions();
     //tiek izsaukta metode, kas atgriež jautājumu kopējo skaitu;
     $jautajumu_skaits = $jautajumu_skaits->getNumberOfQuestions($_SESSION['testa_id']);
-    if ($jautajumu_skaits == 0) 
-    {
+    if ($jautajumu_skaits == 0) { 
         die ("Kļūda!");
     }
     //kopējais jautājumu skaits tiek saglabāts sesijā un tiek atņemts -1;
@@ -40,20 +37,16 @@ if (isset($_POST['jauns-tests']))
 }
 
 //nākamā jautājuma inicializācija
-if (isset($_POST['nakamais-jautajums']))
-{
+if (isset($_POST['nakamais-jautajums'])) {
     //tiek pārbaudīts, vai atbilde ir pareiza
-    if ($_POST['atbilde'] == $_SESSION['jautajuma_atbilde']) 
-    {
+    if ($_POST['atbilde'] == $_SESSION['jautajuma_atbilde']) {
         ++$_SESSION['pareizas_atbildes'];
     }
     // tiek pārbaudīts, vai ir vēl jautājumu un ierakstīts DB iepriekšējā jautājuma rezultāts
-    if ($_SESSION['jautajumu_skaits'] > $_SESSION['jautajuma_numurs'])
-    {
+    if ($_SESSION['jautajumu_skaits'] > $_SESSION['jautajuma_numurs']) {
         atbildeUzJautajumu($_SESSION['lietotaja_vards'], $_SESSION['testa_id'],$_POST['atbilde'],$_SESSION['jautajuma_id']);   
         ++$_SESSION['jautajuma_numurs'];
-    } else 
-    {  
+    } else {
         // ja jaunu jautājumu vairs nav, tad tiek saglabāta informācija par pēdējo jautājumu, kā arī saglabāts kopējais testa rezultāts
         // beigās tas tiek izvadīts result.php skatā
         atbildeUzJautajumu($_SESSION['lietotaja_vards'], $_SESSION['testa_id'],$_POST['atbilde'],$_SESSION['jautajuma_id']);   
@@ -96,8 +89,7 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
         <div class="row">
             <?php
                 // ar foreach ciklu tiek iegūtas visas atbildes
-                foreach ($atbildes_uz_jaut as $atbilde)
-                {
+                foreach ($atbildes_uz_jaut as $atbilde) {
                     echo "<div class='col-sm-6 atbildes'>";
                         echo "<input name='atbilde' type='radio' value='$atbilde[atbildes_id]'> $atbilde[atbilde]<br>";
                     echo "</div>";
@@ -106,11 +98,9 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
         </div>
         <div class="row">
             <?php
-            if ($_SESSION['jautajumu_skaits'] != $_SESSION['jautajuma_numurs'])
-            {
+            if ($_SESSION['jautajumu_skaits'] != $_SESSION['jautajuma_numurs']) {
                 $pogas_value = "Nākamais jautājums";
-            } else 
-            {
+            } else {
                 $pogas_value = "Pabeigt testu";
             }
             echo "<input class='btn btn-success' type='submit' name='nakamais-jautajums' value='{$pogas_value}'>";
@@ -118,9 +108,7 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
         </div>
     </form>
     <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
-            <span class="sr-only">40% Complete (success)</span>
-        </div>
+        <div class="progress-bar progress-bar-success" style="width: 25%"></div>
     </div>
 </div>
 

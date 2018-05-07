@@ -7,8 +7,8 @@ class Db
     private $password;
     private $database;
 
-    protected function connect()
-    {
+    protected function connect() {
+  
         $this->hostname = "localhost";
         $this->username = "root";
         $this->password = "root";

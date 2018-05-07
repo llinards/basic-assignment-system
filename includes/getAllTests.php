@@ -4,8 +4,7 @@
 class Testi extends Db
 {
     //metode, kas atgriež visus pieejamos testus sākumlapā
-    public function getAllTests()
-    {
+    public function getAllTests() {
         $query = "SELECT * FROM testi";
         $result = $this->connect()->query($query);
         if(!$result) die ($conn->error);

@@ -24,8 +24,7 @@
                                 <option selected disabled value="">Izvēlies testu</option>
                                 <?php 
                                 // foreach cikls, lai izveidotu "dropdown" izvēlni
-                                foreach ($testi as $tests)
-                                {
+                                foreach ($testi as $tests) {
                                     echo "<option value='$tests[testa_id]'>$tests[testa_nosaukums]</option>";
                                 } 
                                 ?>
