@@ -1,7 +1,7 @@
+//Tiek veikta formas validācija, lai pārbaudītu, ka lietotājs ir ievadījis vārdu un izvēlējies testu
 function validate(form) {
     fail = validateUsername(form.lietotajs.value);
     fail += validateTest(form.tests.value);
-
     if (fail == "") return true;
     else {
         alert(fail);
@@ -9,6 +9,7 @@ function validate(form) {
     return false;
 }
 
+//Tiek veikta formas validācija, lai pārbaudītu, ka lietotajs ir atbildējis uz jautājumu
 function validateTest(form) {
     fail = validateTestAnswer(form.atbilde.value);
 
@@ -19,6 +20,7 @@ function validateTest(form) {
     return false;
 }
 
+//Tiek pārbaudīts, vai lietotājs izvēlējās atbildi
 function validateTestAnswer(value) {
     if (value == "") {
         return "Izvēlies atbildi!";
@@ -27,7 +29,7 @@ function validateTestAnswer(value) {
     }
 }
 
-
+// Tiek pārbaudīts lietotājvārds, vai nesatur neatļautus simbolus, nav tukšs vai aizdomīgi īss
 function validateUsername(value) {
     if (value == "") {
         return "Lūdzu ievadi savu vārdu! \n";
@@ -40,6 +42,7 @@ function validateUsername(value) {
     }
 }
 
+// Tiek pārbaudīts, vai lietotājs izvēlējās testu
 function validateTest(value) {
     if (value == "") {
         return "Izvēlies testu! \n";
@@ -47,3 +50,6 @@ function validateTest(value) {
         return "";
     }
 }
+
+
+//progresa joslas animācija
