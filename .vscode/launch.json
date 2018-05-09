@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 8888,
+            "webRoot": "${workspaceFolder}"
+        },
+
+        {
             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
