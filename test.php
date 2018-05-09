@@ -91,7 +91,7 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
                 // ar foreach ciklu tiek iegūtas visas atbildes
                 foreach ($atbildes_uz_jaut as $atbilde) {
                     echo "<div class='col-sm-6 atbildes'>";
-                        echo "<input name='atbilde' type='radio' value='$atbilde[atbildes_id]'> $atbilde[atbilde]<br>";
+                        echo "<input required name='atbilde' type='radio' value='$atbilde[atbildes_id]'> $atbilde[atbilde]<br>";
                     echo "</div>";
                 }
             ?>
@@ -108,9 +108,19 @@ $atbildes_uz_jaut = $atbildes->getSpecificAnswers($testa_id, $jautajums['jautaju
         </div>
     </form>
     <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: 25%"></div>
+        <div id="progress" class="progress-bar progress-bar-success"></div>
     </div>
 </div>
+
+<script>
+
+    var jautajumuSkaits = <?php echo json_encode($_SESSION['jautajumu_skaits'], JSON_HEX_TAG); ?>;
+    var jautajums = <?php echo json_encode($_SESSION['jautajuma_numurs'], JSON_HEX_TAG); ?>;
+    var result = (jautajums / jautajumuSkaits) * 100;
+
+    document.getElementById("progress").style.width = result + "%";
+
+</script>
 
 
 <?php include_once "includes/footer.php"; ?>
