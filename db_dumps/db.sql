@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 09, 2018 at 12:13 PM
+-- Generation Time: May 09, 2018 at 01:24 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.6
 
@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `printful`
 --
+CREATE DATABASE IF NOT EXISTS `printful` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `printful`;
 
 -- --------------------------------------------------------
 
@@ -220,7 +222,7 @@ ALTER TABLE `atbildes`
 -- AUTO_INCREMENT for table `atbildes_uz_jautajumiem`
 --
 ALTER TABLE `atbildes_uz_jautajumiem`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `jautajumi`
 --
@@ -230,7 +232,7 @@ ALTER TABLE `jautajumi`
 -- AUTO_INCREMENT for table `rezultati`
 --
 ALTER TABLE `rezultati`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `testi`
 --
